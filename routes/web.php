@@ -19,4 +19,6 @@ Route::get('/', function () {
 });
 
 Route::get('/animals', [AnimalController::class, 'index']) -> name('admin.animals.index');
+Route::get('/animals/create', [AnimalController::class, 'create']) -> name('admin.animals.create');
+Route::post('/animals', [AnimalController::class, 'store']) -> name('animals.store');
 Route::get('/animals/{animal}', [AnimalController::class, 'show']) -> name('admin.animals.show');

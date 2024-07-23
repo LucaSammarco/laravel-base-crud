@@ -334,14 +334,7 @@ class AnimalSeeder extends Seeder
         ];
 
         foreach ($animalsData as $animalData) {
-            $newAnimal = new Animal();
-            $newAnimal->name = $animalData['name'];
-            $newAnimal->species = $animalData['species'];
-            $newAnimal->age = $animalData['age'];
-            $newAnimal->image_url = $animalData['image_url'];
-            $newAnimal->description = $animalData['description'];
-            $newAnimal->save();
-
+            Animal::create($animalData);
         }
     }
 }

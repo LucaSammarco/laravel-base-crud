@@ -25,6 +25,7 @@ class AnimalController extends Controller
     public function create()
     {
         //
+        return view('admin.animals.create');
     }
 
     /**
@@ -33,6 +34,16 @@ class AnimalController extends Controller
     public function store(Request $request)
     {
         //
+        $data = $request->all();
+
+        $newAnimal = new Animal($data);
+        $newAnimal->name = $data['name'];
+        $newAnimal->species = $data['species'];
+        $newAnimal->age = $data['age'];
+        $newAnimal->image_url = $data['image_url'];
+        $newAnimal->description = $data['description'];
+        dd($newAnimal);
+
     }
 
     /**
