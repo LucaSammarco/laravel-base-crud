@@ -42,7 +42,10 @@ class AnimalController extends Controller
         $newAnimal->age = $data['age'];
         $newAnimal->image_url = $data['image_url'];
         $newAnimal->description = $data['description'];
-        dd($newAnimal);
+        // dd($newAnimal);
+        $newAnimal->save();
+
+        return redirect()->route('admin.animals.show', $newAnimal);
 
     }
 
