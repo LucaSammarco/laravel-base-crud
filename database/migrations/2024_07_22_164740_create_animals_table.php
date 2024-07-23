@@ -16,6 +16,8 @@ return new class extends Migration
             $table->string('name');
             $table->string('species');
             $table->integer('age');
+            $table->string('image_url');
+            $table->text('description')->nullable();
             $table->timestamps();
         });
     }

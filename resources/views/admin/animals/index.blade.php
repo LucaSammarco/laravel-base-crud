@@ -1,25 +1,25 @@
 @extends('layouts.app')
 
-@section('page-title' )
+@section('page-title')
     Animals
 @endsection
 
 @section('main-content')
-    <h1>Welcome to the Animals</h1>
+    <h1 class="text-center m-5">Welcome to the Jungle</h1>
 
- @foreach ($animals as $animal)
-
-    <div class="card">
-        <div class="card-header">
-            <h2>{{ $animal->name }}</h2>
-        </div>
-
-        <div class="card-body">
-            <p>{{ $animal->species }}</p>
-            <p>{{ $animal->age }}</p>
-
-        </div>
-
- @endforeach
-
+    <div class="row m-5">
+        @foreach ($animals as $animal)
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <img src="{{ $animal->image_url }}" class="card-img-top" alt="{{ $animal->name }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ $animal->name }}</h5>
+                        <p class="card-text"><strong>Species:</strong> {{ $animal->species }}</p>
+                        <p class="card-text"><strong>Age:</strong> {{ $animal->age }} years old</p>
+                        <p class="card-text">{{ $animal->description }}</p>
+                    </div>
+                </div>
+            </div>
+        @endforeach
+    </div>
 @endsection

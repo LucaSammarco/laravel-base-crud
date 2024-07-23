@@ -4,4 +4,16 @@
 @import "~bootstrap/scss/bootstrap";
 
 
+@import url('https://fonts.googleapis.com/css2?family=Sofadi+One&display=swap');
 
+
+.sofadi-one-regular {
+    font-family: "Sofadi One", system-ui;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+body {
+    font-family: "Sofadi One";
+    background-image: url(https://singersroom.com/wp-content/uploads/2023/02/Jungle-Music-scaled.jpg);
+}

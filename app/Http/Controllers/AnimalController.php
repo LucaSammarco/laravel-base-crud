@@ -38,11 +38,11 @@ class AnimalController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Animal $animal)
     {
         //
 
-        $animal = Animal::findOrFail($id);
+        // $animal = Animal::findOrFail($id);
 
         return view('admin.animals.show', compact('animal'));
     }
