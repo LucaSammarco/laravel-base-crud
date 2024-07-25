@@ -36,16 +36,30 @@ class AnimalController extends Controller
         //
         $data = $request->all();
 
-        $newAnimal = new Animal($data);
-        $newAnimal->name = $data['name'];
-        $newAnimal->species = $data['species'];
-        $newAnimal->age = $data['age'];
-        $newAnimal->image_url = $data['image_url'];
-        $newAnimal->description = $data['description'];
-        // dd($newAnimal);
-        $newAnimal->save();
+        // $newAnimal = new Animal($data);
+        // $newAnimal->name = $data['name'];
+        // $newAnimal->species = $data['species'];
+        // $newAnimal->age = $data['age'];
+        // $newAnimal->image_url = $data['image_url'];
+        // $newAnimal->description = $data['description'];
+        // // dd($newAnimal);
+        // $newAnimal->save();
+
+        // return redirect()->route('admin.animals.show', $newAnimal);
+
+        $data = $request->validate([
+            'name' => 'required|string|min:2',
+            'species' => 'required',
+            'age' => 'required|integer',
+            'image_url' => 'required|url',
+            'description' => 'required|string|min:10',
+        ]);
+
+        $newAnimal = Animal::create($data);
 
         return redirect()->route('admin.animals.show', $newAnimal);
+
+
 
     }
 
