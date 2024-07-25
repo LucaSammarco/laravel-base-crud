@@ -91,7 +91,13 @@ class AnimalController extends Controller
     public function update(Request $request, Animal $animal)
     {
         //
-        $data = $request->all();
+        $data = $request->validate([
+            'name' => 'required|string|min:2',
+            'species' => 'required',
+            'age' => 'required|integer',
+            'image_url' => 'required|url',
+            'description' => 'required|string|min:10',
+        ]);
 
         $animal->update($data);
 
